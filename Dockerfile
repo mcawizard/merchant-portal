@@ -28,11 +28,12 @@ WORKDIR /app
 # Copy built application from builder stage
 COPY --from=builder /app/build ./build
 
-# Copy serve configuration
+# Copy serve configuration and startup script
 COPY --from=builder /app/serve.json ./
+COPY --from=builder /app/start.sh ./
 
 # Expose port
 EXPOSE 3000
 
 # Start the application
-CMD ["serve", "build", "-p", "3000", "--single"]
+CMD ["npx", "serve", "build", "--single", "--listen", "tcp://0.0.0.0:3000"]
