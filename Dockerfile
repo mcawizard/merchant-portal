@@ -1,5 +1,5 @@
-# Use Node.js 18 as base image
-FROM node:18-alpine as builder
+# Use Node.js 22 as base image
+FROM node:22-alpine as builder
 
 # Set working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN yarn run production
 
 # Production stage
-FROM node:18-alpine as production
+FROM node:22-alpine as production
 
 # Install serve globally
 RUN npm install -g serve
