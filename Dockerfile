@@ -35,4 +35,4 @@ COPY --from=builder /app/serve.json ./
 EXPOSE 3000
 
 # Start the application
-CMD ["serve", "-c", "serve.json", "-l", "3000"]
+CMD ["serve", "-c", "serve.json", "-p", "3000"]
