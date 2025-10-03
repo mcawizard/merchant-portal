@@ -8,4 +8,4 @@ cmds = ['yarn install']
 cmds = ['yarn run production']
 
 [start]
-cmd = 'npx serve -c serve.json -p ${PORT:-3000}'
+cmd = 'chmod +x start.sh && ./start.sh'

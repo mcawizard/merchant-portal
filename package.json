@@ -131,9 +131,9 @@
     "make": "node tools/make.js",
     "predeploy": "run-s production",
     "build": "yarn run production",
-    "start": "serve -c serve.json -p $PORT",
+    "start": "serve build -p ${PORT:-3000} --single",
     "railway:build": "yarn install && yarn run production",
-    "railway:start": "serve -c serve.json -p $PORT"
+    "railway:start": "serve build -p ${PORT:-3000} --single"
   },
   "eslintConfig": {
     "extends": [
