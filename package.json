@@ -114,7 +114,8 @@
     "wavesurfer.js": "^7.9.5",
     "whatwg-fetch": "^3.6.20",
     "yarn": "^1.22.22",
-    "zod": "^3.25.23"
+    "zod": "^3.25.23",
+    "serve": "^14.2.1"
   },
   "scripts": {
     "dev.webpack": "cross-env ENV=dev webpack-dev-server --progress",
@@ -128,7 +129,11 @@
     "preproduction": "run-s production:embed",
     "production": "cross-env ENV=production webpack --progress",
     "make": "node tools/make.js",
-    "predeploy": "run-s production"
+    "predeploy": "run-s production",
+    "build": "npm run production",
+    "start": "serve -c serve.json -l $PORT",
+    "railway:build": "npm run production",
+    "railway:start": "serve -c serve.json -l $PORT"
   },
   "eslintConfig": {
     "extends": [
