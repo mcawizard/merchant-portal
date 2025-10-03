@@ -132,7 +132,7 @@
     "predeploy": "run-s production",
     "build": "yarn run production",
     "start": "serve -c serve.json -l $PORT",
-    "railway:build": "yarn install --frozen-lockfile && yarn run production",
+    "railway:build": "yarn install && yarn run production",
     "railway:start": "serve -c serve.json -l $PORT"
   },
   "eslintConfig": {
