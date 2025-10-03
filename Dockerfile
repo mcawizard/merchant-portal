@@ -5,16 +5,16 @@ FROM node:18-alpine as builder
 WORKDIR /app
 
 # Copy package files
-COPY package.json ./
+COPY package.json yarn.lock ./
 
-# Install dependencies using npm to avoid yarn lockfile issues
-RUN npm install
+# Install dependencies using yarn with lockfile
+RUN yarn install --frozen-lockfile
 
 # Copy source code
 COPY . .
 
 # Build the application
-RUN npm run production
+RUN yarn run production
 
 # Production stage
 FROM node:18-alpine as production

@@ -130,9 +130,9 @@
     "production": "cross-env ENV=production webpack --progress",
     "make": "node tools/make.js",
     "predeploy": "run-s production",
-    "build": "npm run production",
+    "build": "yarn run production",
     "start": "serve -c serve.json -l $PORT",
-    "railway:build": "npm run production",
+    "railway:build": "yarn install --frozen-lockfile && yarn run production",
     "railway:start": "serve -c serve.json -l $PORT"
   },
   "eslintConfig": {

@@ -1,11 +1,11 @@
 [phases.setup]
-nixPkgs = ['nodejs_18', 'npm-9_x']
+nixPkgs = ['nodejs_18', 'yarn']
 
 [phases.install]
-cmds = ['npm ci --legacy-peer-deps']
+cmds = ['yarn install --frozen-lockfile']
 
 [phases.build]
-cmds = ['npm run production']
+cmds = ['yarn run production']
 
 [start]
 cmd = 'npx serve -c serve.json -l $PORT'
