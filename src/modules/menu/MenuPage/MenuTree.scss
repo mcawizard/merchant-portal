@@ -1,0 +1,53 @@
+.add-button {
+  margin-bottom: 10px;
+}
+
+.tree-node {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s;
+}
+
+.tree-node:hover {
+  background-color: #e9e9e9;
+}
+
+.toggle-icon {
+  cursor: pointer;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.node-text {
+  flex-grow: 1;
+}
+
+/* Action Icons Container */
+.node-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Edit and Delete Icons */
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.edit-icon:hover {
+  color: #007bff; /* Blue color for edit */
+}
+
+.delete-icon:hover {
+  color: #dc3545; /* Red color for delete */
+}
+
+ul {
+  list-style: none;
+}

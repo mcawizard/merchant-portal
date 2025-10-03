@@ -1,0 +1,22 @@
+.libraryFileViewerModal .MuiBackdrop-root{
+    background-color: black !important;
+    opacity  : 0.9 !important;
+}
+.libraryFileViewerModal .MuiDialogContent-root{
+    padding: 0 !important;
+}
+.libraryFileViewerModal .MuiPaper-root.MuiDialog-paper{
+    box-shadow: none !important;
+}
+.libraryFileViewerModal .MuiDialogTitle-root{
+    background-color: #7E7D80 !important;
+}
+.libraryFileViewerModal .MuiTypography-root .modal_title{
+    color : white !important;
+}
+.libraryFileViewerModal .MuiButtonBase-root.MuiIconButton-root.close_button{
+    display: none !important;
+}
+// .libraryFileViewerModal .MuiDialog-container.css-mgolzn.MuiDialog-scrollPaper{
+//     height: 800px !important;
+// }

@@ -1,0 +1,47 @@
+.form-content {
+    flex: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.fc-item-base {
+    position: relative;
+    padding: 10px;
+}
+
+
+.fc-item-base:hover {
+    border: 1px dashed #556ee6;
+}
+
+.fc-item-base  {
+    &.selected {
+        border: 1px solid #556ee6;
+    }
+}
+
+
+.fc-control-item {
+    border: 1px;
+    text-align: center;
+    border-color: #e3e3e3;
+    padding: 10px;
+    border-style: solid;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &> i {
+        color: #797979;
+    }
+}
+
+.fc-control-item:hover {
+    background-color: #556ee625;
+    &> i {
+        color: #000;
+    }
+}

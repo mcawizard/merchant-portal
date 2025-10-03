@@ -1,0 +1,18 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "corejs": { "version": 3, "proposals": true },
+        "targets": {
+          "browsers": "defaults"
+        }
+      }
+    ],
+    "@babel/preset-react",
+    "@babel/preset-typescript",
+    "@emotion/babel-preset-css-prop"
+  ],
+  "plugins": ["@babel/plugin-proposal-class-properties"]
+}

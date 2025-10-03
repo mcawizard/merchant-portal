@@ -1,0 +1,21 @@
+.accountItem {
+  cursor: pointer;
+  // padding-left: 10px;
+  display: flex;
+  align-items: center;
+  // padding: 10px 20px;
+}
+
+.accountItem-container {
+  transition: all 0.25s;
+  border-radius: 5px;
+  &:hover {
+    background-color: #ffffff10;
+    transform: scale(1.02);
+  }
+}
+
+.accountItem-label {
+  font-size: 18px;
+  font-weight: 500;
+}

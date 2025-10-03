@@ -1,0 +1,1 @@
+  [Blocs.industry, IndustryBloc],

@@ -1,0 +1,5 @@
+.DropableImage {
+  &.isDragging {
+    border: 3px solid red;
+  }
+}

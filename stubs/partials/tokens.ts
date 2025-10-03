@@ -1,0 +1,1 @@
+  industry: createToken<IndustryBloc>(),
