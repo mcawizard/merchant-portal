@@ -1,0 +1,11 @@
+[phases.setup]
+nixPkgs = ['nodejs_22', 'yarn']
+
+[phases.install]
+cmds = ['yarn install']
+
+[phases.build]
+cmds = ['yarn run production']
+
+[start]
+cmd = 'npx serve build --single --listen tcp://0.0.0.0:$PORT'

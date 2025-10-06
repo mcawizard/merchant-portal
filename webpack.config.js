@@ -4,13 +4,13 @@ const webpack = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const AntdMomentWebpackPlugin = require('@ant-design/moment-webpack-plugin');
-const BUILD_MODE = process.env.ENV || 'dev';
+const BUILD_MODE = process.env.ENV || process.env.RAILWAY_ENVIRONMENT || 'dev';
 const PRODUCTION = BUILD_MODE !== 'dev';
 const { loadConfig } = require('./tools/env');
 const NotificationPlugin = require('./tools/notification');
 const CssLoaders = require('./css-loader');
 
-const BUILD_ENV = process.env.ENV || 'dev';
+const BUILD_ENV = process.env.ENV || process.env.RAILWAY_ENVIRONMENT || 'dev';
 
 const BUILD_CONFIG = loadConfig(BUILD_ENV);
 
