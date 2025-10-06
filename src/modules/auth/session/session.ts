@@ -59,10 +59,10 @@ class SessionManager {
             }),
           );
         } else {
-          const onlyAccount = R.first(result.domains)!;
-          Endpoint.setAppId(onlyAccount.tenant_id);
-          TenantConfig.set({ appId: onlyAccount.tenant_id });
-          // TenantConfig.set({ appId: '1724340246' });
+          const onlyAccount = R.first(result)!;
+          Endpoint.setAppId(onlyAccount.appId);
+          Endpoint.setAppDomain(onlyAccount.tenantDomain);
+          TenantConfig.set({ appId: onlyAccount.appId });
           return this.login(data, remember, redirectUrl);
         }
       }),

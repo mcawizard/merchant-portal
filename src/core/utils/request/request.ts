@@ -82,6 +82,22 @@ export class Request {
     return this._appId;
   }
 
+  public setAppDomain(domain: string | null) {
+    if (domain) {
+      this._config.baseUrl = `${domain}`;
+    } else {
+      this._config.baseUrl = undefined;
+    }
+  }
+
+  public getAppDomain() {
+    if (this._config.baseUrl) {
+      const match = this._config.baseUrl.match(/^https?:\/\/([^\/]+)/);
+      if (match) return match[1];
+    }
+    return null;
+  }
+
   public setAuth(auth: AuthConfig | null) {
     this._auth = auth;
   }

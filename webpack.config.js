@@ -102,7 +102,7 @@ const config = (module.exports = {
     historyApiFallback: true,
     compress: false,
     port: '6007',
-    allowedHosts: ['app.lendwizely.local'],
+    allowedHosts: ['merchantportal.local'],
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': '*',

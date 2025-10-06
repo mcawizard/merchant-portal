@@ -7,13 +7,13 @@ import { LoginTenantResponse } from '@business/entities/common';
 export function login(username: string, password: string) {
   const data = { username, password, client_id: 2, client_secret: 'IUfqlYgUGsfGgFT2We3cluyZG2API014BIAtejv2', grant_type: 'password', scope: '' };
 
-  return Endpoint.post<{ token: string }>('@root/oauth/token', { data, noAuth: true });
+  return Endpoint.post<{ access_token: string }>('@root/oauth/token', { data, noAuth: true });
 }
 
 export function loginForAccounts(username: string, password: string) {
   const data = { username, password };
 
-  return Endpoint.post<LoginTenantResponse[]>('@api/non-tenant/login', { data, noAuth: true });
+  return Endpoint.post<LoginTenantResponse[]>('@api/non-tenant/g-login', { data, noAuth: true });
 }
 
 export function accounts() {

@@ -6,8 +6,10 @@ import moment from 'moment-timezone';
 
 export const Endpoint = new Request({
   urlMappings: () => ({
+    // GET appDomain
     '@api': Config.API_URL,
     '@root': Config.API_URL_NAKED,
+    // GET appDomain without /api suffix
   }),
   authMappings: () => ({
     '@root': getClientAuth,
