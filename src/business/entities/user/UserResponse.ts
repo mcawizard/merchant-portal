@@ -7,10 +7,9 @@ export interface UserResponse {
   name: string;
   email: string;
   phone: string;
-  avatar: string;
+  image_path: string;
   role: UserRole;
   companyName?: string;
-  accountManager?: { name: string; email: string };
 }
 
 export enum UserRole {

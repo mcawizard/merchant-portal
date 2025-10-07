@@ -219,8 +219,11 @@ export class Request {
           throw transformedResponse;
         }
         if (!transformedResponse.meta) {
-          transformedResponse = transformedResponse.data;
-          // transformedResponse = transformedResponse;
+          if (!transformedResponse.data) {
+            transformedResponse = transformedResponse;
+          } else {
+            transformedResponse = transformedResponse.data;
+          }
         }
       } else {
         transformedResponse = await response.text();
