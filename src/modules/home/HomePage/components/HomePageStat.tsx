@@ -15,7 +15,7 @@ export const HomePageStat = memo((props: HomePageStatProps) => {
         <Card style={{ minWidth: 150, position: 'relative' }} className="bg-home-gradient-border bg-home-card-dim">
           <div className="flex items-center">
             <div className="flex-fill">
-              {stat.isComing && <ComingSoon />}
+              {stat?.isComing && <ComingSoon />}
               <div className="flex items-center justify-between w-full mb-2">
                 <div className="text-[12px] text-muted">
                   {stat.title}{' '}

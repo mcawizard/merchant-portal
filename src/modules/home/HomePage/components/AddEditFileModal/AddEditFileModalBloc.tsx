@@ -5,17 +5,16 @@ import { LoadingState } from '@core/utils/repository/loading_state';
 import { of } from 'rxjs';
 
 export class AddEditFileModalBloc extends BaseBloc {
-  // private readonly folderBloc = resolve(Blocs.folderFileManager);
-  // constructor(private readonly id?: string) {
-  //   super();
-  // }
+  private readonly fileCategoryBloc = resolve(Blocs.fileCategory);
+  private readonly dealFileBloc = resolve(Blocs.dealFile);
+
   loading = new LoadingState();
-  // onInit() {
-  //   if (this.id) {
-  //     return this.folderBloc.read(this.id).pipe(this.loading.run());
-  //   }
-  //   return of(null).pipe(this.loading.run());
-  // }
-  // add = this.folderBloc.addFile;
+
+  categories$ = this.fileCategoryBloc.items$;
+
+  onInit() {
+    return this.fileCategoryBloc.all().pipe(this.loading.run());
+  }
+  add = this.dealFileBloc.create;
   // edit = this.folderBloc.edit;
 }

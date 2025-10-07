@@ -17,7 +17,6 @@ export interface SubmissionTableProps {
 export const SubmissionTable = memo((props: SubmissionTableProps) => {
   const { bloc } = props;
   const submissions = useObservable(bloc.submission$, []);
-  console.log('submissions', submissions);
 
   const columns: ColumnType<SubmissionResponse>[] = [
     {
@@ -62,7 +61,16 @@ export const SubmissionTable = memo((props: SubmissionTableProps) => {
     },
     {
       width: 50,
-      render: (_, item) => <TableMenu key={item.id} onUpload={() => openAddEditFileModal({})} />,
+      render: (_, item) => (
+        <TableMenu
+          key={item.id}
+          onUpload={() =>
+            openAddEditFileModal({
+              deal_id: item.id,
+            })
+          }
+        />
+      ),
     },
   ];
 

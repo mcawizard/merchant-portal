@@ -5,6 +5,7 @@ export const REQUEST_MESSAGES = {
 
   fetch_general_error: () => t`Error occured while getting data`,
   fetch_settings_error: () => t`Unable to fetch settings`,
+  fetch_category_error: () => t`Unable to fetch categories`,
   update_general_error: () => t`Error occured while updating data`,
   fetch_tools_error: () => t`Unable to fetch tools`,
 
