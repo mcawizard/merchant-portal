@@ -38,12 +38,12 @@ export const AntDProvider = ({ children }) => {
             zIndexPopup: 2000,
           },
           Input: {
-            hoverBorderColor: Theme.inputBorderColor,
+            // hoverBorderColor: Theme.inputBorderColor,
             activeBorderColor: Theme.inputBorderColor,
             activeShadow: '0 0 0 2px rgba(5, 145, 255, 0.1)',
           },
           Select: {
-            colorPrimaryHover: Theme.inputBorderColor,
+            // colorPrimaryHover: Theme.inputBorderColor,
             colorPrimaryActive: Theme.inputBorderColor,
             colorPrimaryBorderHover: Theme.inputBorderColor,
             colorPrimaryBorder: Theme.inputBorderColor,
