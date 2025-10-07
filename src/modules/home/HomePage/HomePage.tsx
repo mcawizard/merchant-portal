@@ -10,22 +10,14 @@ import { TabItem, Tabs } from '@core/components/Tabs';
 import { SubmissionTable } from './Tabs/SubmissionTable/SubmissionTable';
 import { Col, Row } from 'reactstrap';
 import { HomePageStat } from './components/HomePageStat';
-import { HomeStatResponse } from '@business/entities/home';
+import { useObservable } from '@core/utils/hooks/rxjs';
 
 export const HomePage = memo(() => {
   const bloc = useBloc(HomePageBloc);
   useMainPageConfig(() => ({ sidebar: false, header: false }));
   const history = useHistory();
 
-  const stats: HomeStatResponse[] = useMemo(
-    () => [
-      { title: 'Total Amount Funded', value: 120, icon: 'fas fa-dollar-sign', prefix: '$', description: 'Total amount funded to merchants' },
-      { title: 'Number of Offer Received', value: 75, icon: 'fas fa-handshake', color: 'success' },
-      { title: 'Total Repayments', value: 30, icon: 'fas fa-hand-holding-dollar', color: 'info' },
-      { title: 'Total Settled Balance', value: 15, icon: 'fas fa-dollar-sign', color: 'warning' },
-    ],
-    [],
-  );
+  const stats = useObservable(bloc.stats$, []);
 
   const tabs: TabItem[] = useMemo(
     () => [
@@ -48,20 +40,7 @@ export const HomePage = memo(() => {
   return (
     <Page className="min-w-0 mb-4" noSidebar>
       <CustomHeader hasSidebar={false}>
-        <PageHeader
-          noClass
-          // buttons={[
-          //   {
-          //     title: 'Add New',
-          //     icon: 'fa-duotone fa-solid fa-plus',
-          //     onClick: () => {
-          //       history.push('/agents');
-          //     },
-          //   },
-          // ]}
-        >
-          Dashboard
-        </PageHeader>
+        <PageHeader noClass>Dashboard</PageHeader>
       </CustomHeader>
       <Row>
         <Col className="flex overflow-x-auto" style={{ gap: 20 }}>

@@ -5,7 +5,7 @@ import { UploadFile } from 'antd';
 import Dragger, { DraggerProps } from 'antd/es/upload/Dragger';
 import React, { memo } from 'react';
 
-export interface DropzoneProps extends DraggerProps {
+export interface DropzoneProps extends Omit<DraggerProps, 'onChange' | 'multiple'> {
   title?: string;
   subtitle?: string;
   uploadPath: string;
@@ -13,6 +13,7 @@ export interface DropzoneProps extends DraggerProps {
   onUpload?(file: UploadFile): void;
   media?: boolean;
   autoUpload?: boolean;
+  multiple?: boolean;
   onChange?(files: any): void;
 }
 
@@ -41,10 +42,34 @@ export const Dropzone = memo((props: DropzoneProps) => {
         if (info.file.status === 'done') {
           props.onUpload?.(info.file);
         }
-        props.onChange?.(info.fileList.filter(file => file.status !== 'done'));
+
+        const filteredFiles = info.fileList.filter(file => file.status !== 'done');
+
+        // Handle onChange callback based on multiple flag
         if (multiple) {
-          setFileList(info.fileList.filter(file => file.status !== 'done'));
+          // Return array of files when multiple is true
+          props.onChange?.(filteredFiles);
+          setFileList(filteredFiles);
         } else {
+          // Return single file (or null) when multiple is false
+          const singleFile = filteredFiles.length > 0 ? filteredFiles[0] : null;
+
+          // Extract the actual File object from the UploadFile wrapper
+          let fileToReturn = null;
+          if (singleFile) {
+            if (singleFile.originFileObj && singleFile.originFileObj instanceof File) {
+              fileToReturn = singleFile.originFileObj;
+            } else if (singleFile.file && singleFile.file instanceof File) {
+              fileToReturn = singleFile.file;
+            } else if (singleFile instanceof File) {
+              fileToReturn = singleFile;
+            } else {
+              // Fallback to the wrapped object
+              fileToReturn = singleFile;
+            }
+          }
+
+          props.onChange?.(fileToReturn);
           setFileList([info.file]);
         }
       }}

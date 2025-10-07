@@ -33,21 +33,35 @@ export function toFormData(model: any, form: FormData | null = null, namespace =
   for (const propertyName in model) {
     if (!model.hasOwnProperty(propertyName) || model[propertyName] == undefined) continue;
     const formKey = namespace ? `${namespace}[${propertyName}]` : propertyName;
-    if (model[propertyName] instanceof File) {
-      formData.append(formKey, model[propertyName]);
-    } else if (model[propertyName] instanceof Array) {
-      model[propertyName].forEach((element: any, index: number) => {
-        if (typeof element != 'object') formData.append(`${formKey}[]`, element);
-        else if (element instanceof File) formData.append(`${formKey}[]`, element);
-        else {
+    const value = model[propertyName];
+    // Handle File objects first (most specific check)
+    if (value instanceof File) {
+      formData.append(formKey, value);
+    } 
+    // Handle Blob objects (File extends Blob)
+    else if (value instanceof Blob) {
+      formData.append(formKey, value);
+    }
+    // Handle arrays (but make sure it's not a File first)
+    else if (Array.isArray(value)) {
+      value.forEach((element: any, index: number) => {
+        if (element instanceof File || element instanceof Blob) {
+          formData.append(`${formKey}[]`, element);
+        } else if (typeof element !== 'object') {
+          formData.append(`${formKey}[]`, element);
+        } else {
           const tempFormKey = `${formKey}[${index}]`;
           toFormData(element, formData, tempFormKey);
         }
       });
-    } else if (typeof model[propertyName] === 'object' && !(model[propertyName] instanceof File)) {
-      toFormData(model[propertyName], formData, formKey);
-    } else {
-      formData.append(formKey, model[propertyName].toString());
+    } 
+    // Handle nested objects (but not File, Blob, or Array)
+    else if (value !== null && typeof value === 'object') {
+      toFormData(value, formData, formKey);
+    } 
+    // Handle primitive values
+    else {
+      formData.append(formKey, String(value));
     }
   }
   return formData;

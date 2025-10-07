@@ -68,9 +68,9 @@ export const AddEditFileModal = memo((props: AddEditFileModalProps) => {
             uploadPath="files"
             multiple={false}
             showUploadList
-            accept=".pdf,.pdf,.docx,.csv,.pptx,.txt,.xlsx,.doc,.xls"
+            accept=".pdf,.pdf,.docx,.csv,.pptx,.txt,.xlsx,.doc,.xls,.png,.jpg,.jpeg"
             autoUpload={false}
-            onChange={files => form.patchValue({ file: files[0] })}
+            onChange={file => form.patchValue({ file })}
           />
           <FormSelect
             items={categories}
