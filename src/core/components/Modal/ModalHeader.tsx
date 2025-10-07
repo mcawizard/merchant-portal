@@ -22,7 +22,7 @@ const styles = (dark?: boolean) => ({
     .modal_title {
       flex: 1;
       font-family: 'Poppins', sans-serif;
-      ${dark ? 'color: #fff;' : 'color: #495057;'}
+      color: #495057; // Always use dark text for light theme
       font-size: 16px;
       font-weight: 600;
       line-height: 1;
@@ -73,7 +73,7 @@ export const ModalHeader = memo((props: ModalHeaderProps) => {
         modal.close();
       }}
     >
-      <Close className="text-white" />
+      <Close className="text-gray-600" />
     </IconButton>
   );
 
@@ -83,9 +83,9 @@ export const ModalHeader = memo((props: ModalHeaderProps) => {
         <DialogTitle
           classes={{
             root: css([
-              styles(true).container,
-              !!props.children && styles(true).customContent,
-              props.noBorder && styles(true).noBorder,
+              styles(false).container, // Use light theme
+              !!props.children && styles(false).customContent,
+              props.noBorder && styles(false).noBorder,
               props.customCss,
             ]),
           }}

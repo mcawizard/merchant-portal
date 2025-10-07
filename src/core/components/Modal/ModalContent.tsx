@@ -11,7 +11,7 @@ const styles = {
     line-height: 1.5;
     position: relative;
     // background-color: var(--color-dark-700);
-    color: #fff;
+    // color: #333; // Use dark text for light theme instead of white
 
     padding-top: 20px !important;
   `,

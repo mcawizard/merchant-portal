@@ -9,8 +9,8 @@ $sidebar-bg: #ffffff;
 $sidebar-menu-item-color: #545a6d;
 $sidebar-menu-sub-item-color: #545a6d;
 $sidebar-menu-item-icon-color: #7f8387;
-$sidebar-menu-item-hover-color: #556ee6;
-$sidebar-menu-item-active-color: #556ee6;
+$sidebar-menu-item-hover-color: #383c40;
+$sidebar-menu-item-active-color: #07456b;
 $sidebar-width: 250px;
 $sidebar-collapsed-width: 70px;
 $sidebar-width-sm: 160px;
@@ -23,48 +23,53 @@ $sidebar-dark-menu-item-icon-color: #6a7187;
 $sidebar-dark-menu-item-hover-color: #ffffff;
 $sidebar-dark-menu-item-active-color: #ffffff;
 
+$white: #fff !default;
+$component-active-color: $white !default;
+$card-bg: $white !default;
+
 // Topbar - Deafult Light
 $header-height: 70px;
-$header-bg: #191919;
-$header-item-color: #dcdcdc;
+$header-bg: #ffffff;
+$header-item-color: #555b6d;
 
 // Topbar - Dark
-$header-dark-bg: #556ee6;
+$header-dark-bg: #2a3042;
 $header-dark-item-color: #e9ecef;
 
 // Topbar Search
-$topbar-search-bg: #2a3042;
+$topbar-search-bg: #f3f3f9;
 
 // Footer
 $footer-height: 60px;
-$footer-bg: #111;
-$footer-color: #a6b0cf;
+$footer-bg: #f2f2f5;
+$footer-color: #74788d;
 
 // Horizontal nav
-$topnav-bg: #282e3f;
-$menu-item-color: #dcdcdc;
-$menu-item-active-color: #ffffff;
+$topnav-bg: #fff;
+
+$menu-item-color: #545a6d;
+$menu-item-active-color: #07456b;
 
 // Right Sidebar
 $rightbar-width: 280px;
 
 // Display
-$display-none: block;
-$display-block: none;
+$display-none: none;
+$display-block: block;
 
 // Brand
 $navbar-brand-box-width: 250px;
 
 // Boxed layout width
 $boxed-layout-width: 1300px;
-$boxed-body-bg: #32394f;
+$boxed-body-bg: #ebebf4;
 
 // Font Weight
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 
 // apex charts
-$apex-grid-color: #32394e;
+$apex-grid-color: #f8f9fa;
 
 // Variables
 //
@@ -74,15 +79,15 @@ $apex-grid-color: #32394e;
 // Color system
 
 $white: #fff;
-$gray-100: #212529;
-$gray-200: #2a3042;
-$gray-300: #32394e;
-$gray-400: #a6b0cf;
-$gray-500: #bfc8e2;
-$gray-600: #c3cbe4;
-$gray-700: #f6f6f6;
-$gray-800: #eff2f7;
-$gray-900: #f8f9fa;
+$gray-100: #f8f9fa;
+$gray-200: #eff2f7;
+$gray-300: #f6f6f6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #74788d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
 $black: #000;
 
 $grays: ();
@@ -102,7 +107,7 @@ $grays: map-merge(
   $grays
 );
 
-$blue: #319cf4;
+$blue: #07456b;
 $indigo: #564ab1;
 $purple: #6f42c1;
 $pink: #e83e8c;
@@ -140,7 +145,7 @@ $success: $green;
 $info: $cyan;
 $warning: $yellow;
 $danger: $red;
-$light: $gray-300;
+$light: $gray-200;
 $dark: $gray-800;
 
 $theme-colors: ();
@@ -164,7 +169,7 @@ $theme-colors: map-merge(
 $theme-color-interval: 8%;
 
 // The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
-$yiq-contrasted-threshold: 150;
+$yiq-contrasted-threshold: 200;
 
 // Customize the light and dark text colors for use in our YIQ color contrast function.
 $yiq-text-dark: $gray-900;
@@ -235,8 +240,8 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg: #111;
-$body-color: #f5f5f5;
+$body-bg: #f8f8fb;
+$body-color: $gray-700;
 
 // Links
 //
@@ -299,7 +304,7 @@ $line-height-lg: 1.5;
 $line-height-sm: 1.5;
 
 $border-width: 1px;
-$border-color: $gray-300;
+$border-color: $gray-200;
 
 $border-radius: 0.25rem;
 $border-radius-lg: 0.4rem;
@@ -377,13 +382,13 @@ $lead-font-weight: 300;
 
 $small-font-size: 80%;
 
-$text-muted: #a0aec0;
+$text-muted: $gray-600;
 
-$blockquote-small-color: $gray-500;
+$blockquote-small-color: $gray-600;
 $blockquote-small-font-size: $small-font-size;
 $blockquote-font-size: $font-size-base * 1.25;
 
-$hr-border-color: $gray-300;
+$hr-border-color: rgba($black, 0.1);
 $hr-border-width: $border-width;
 
 $mark-padding: 0.2em;
@@ -408,23 +413,24 @@ $table-cell-padding-sm: 0.3rem;
 
 $table-color: $body-color;
 $table-bg: null;
-$table-accent-bg: rgba($gray-500, 0.05);
+$table-accent-bg: $gray-100;
 $table-hover-color: $table-color;
-$table-hover-bg: rgba($gray-500, 0.05);
+$table-hover-bg: $gray-100;
 $table-active-bg: $table-hover-bg;
 
 $table-border-width: $border-width;
 $table-border-color: $border-color;
 
-$table-head-bg: rgba($gray-600, 0.05);
-$table-head-color: $gray-600;
+$table-head-bg: $gray-100;
+$table-head-color: $gray-700;
 
-$table-dark-color: $gray-600;
-$table-dark-bg: $gray-300;
+$table-dark-color: $white;
+$table-dark-bg: $gray-800;
 $table-dark-accent-bg: rgba($white, 0.05);
 $table-dark-hover-color: $table-dark-color;
 $table-dark-hover-bg: rgba($white, 0.075);
 $table-dark-border-color: lighten($table-dark-bg, 7.5%);
+$table-dark-color: $white;
 
 $table-striped-order: odd;
 
@@ -482,9 +488,7 @@ $btn-line-height-lg: $input-btn-line-height-lg;
 $btn-border-width: $input-btn-border-width;
 
 $btn-font-weight: $font-weight-normal;
-$btn-box-shadow:
-  inset 0 1px 0 rgba($white, 0.15),
-  0 1px 1px rgba($black, 0.075);
+$btn-box-shadow: inset 0 1px 0 rgba($white, 0.15), 0 1px 1px rgba($black, 0.075);
 $btn-focus-width: $input-btn-focus-width;
 $btn-focus-box-shadow: $input-btn-focus-box-shadow;
 $btn-disabled-opacity: 0.65;
@@ -499,11 +503,7 @@ $btn-border-radius: $border-radius;
 $btn-border-radius-lg: $border-radius-lg;
 $btn-border-radius-sm: $border-radius-sm;
 
-$btn-transition:
-  color 0.15s ease-in-out,
-  background-color 0.15s ease-in-out,
-  border-color 0.15s ease-in-out,
-  box-shadow 0.15s ease-in-out;
+$btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
 // Forms
 
@@ -526,11 +526,11 @@ $input-padding-x-lg: $input-btn-padding-x-lg;
 $input-font-size-lg: $input-btn-font-size-lg;
 $input-line-height-lg: $input-btn-line-height-lg;
 
-$input-bg: #111;
-$input-disabled-bg: lighten($input-bg, 5%);
+$input-bg: $white;
+$input-disabled-bg: $white;
 
-$input-color: $gray-500;
-$input-border-color: #2a2a2a;
+$input-color: $gray-700;
+$input-border-color: $gray-400;
 $input-border-width: $input-btn-border-width;
 $input-box-shadow: inset 0 1px 1px rgba($black, 0.075);
 
@@ -538,13 +538,13 @@ $input-border-radius: $border-radius;
 $input-border-radius-lg: $border-radius-lg;
 $input-border-radius-sm: $border-radius-sm;
 
-$input-focus-bg: lighten($input-bg, 1%);
-$input-focus-border-color: lighten($input-border-color, 2%);
+$input-focus-bg: $input-bg;
+$input-focus-border-color: darken($input-border-color, 10%);
 $input-focus-color: $input-color;
 $input-focus-width: $input-btn-focus-width;
 $input-focus-box-shadow: none;
 
-$input-placeholder-color: $gray-400;
+$input-placeholder-color: $gray-600;
 $input-plaintext-color: $body-color;
 
 $input-height-border: $input-border-width * 2;
@@ -557,9 +557,7 @@ $input-height: calc(#{$input-line-height * 1em} + #{$input-padding-y * 2} + #{$i
 $input-height-sm: calc(#{$input-line-height-sm * 1em} + #{$input-btn-padding-y-sm * 2} + #{$input-height-border});
 $input-height-lg: calc(#{$input-line-height-lg * 1em} + #{$input-btn-padding-y-lg * 2} + #{$input-height-border});
 
-$input-transition:
-  border-color 0.15s ease-in-out,
-  box-shadow 0.15s ease-in-out;
+$input-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
 $form-text-margin-top: 0.25rem;
 
@@ -574,27 +572,153 @@ $form-grid-gutter-width: 10px;
 $form-group-margin-bottom: 1rem;
 
 $input-group-addon-color: $input-color;
-$input-group-addon-bg: $gray-300;
+$input-group-addon-bg: $gray-200;
 $input-group-addon-border-color: $input-border-color;
 
-$custom-forms-transition:
-  background-color 0.15s ease-in-out,
-  border-color 0.15s ease-in-out,
-  box-shadow 0.15s ease-in-out;
+$custom-forms-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
 $custom-control-gutter: 0.5rem;
 $custom-control-spacer-x: 1rem;
 
 $custom-control-indicator-size: 1rem;
-$custom-control-indicator-bg: $gray-400;
+$custom-control-indicator-bg: $input-bg;
 
 $custom-control-indicator-bg-size: 50% 50%;
 $custom-control-indicator-box-shadow: $input-box-shadow;
-$custom-control-indicator-border-color: $gray-400;
+$custom-control-indicator-border-color: $gray-500;
 $custom-control-indicator-border-width: $input-border-width;
 
 $custom-control-indicator-disabled-bg: $input-disabled-bg;
 $custom-control-label-disabled-color: $gray-600;
+
+$custom-control-indicator-checked-color: $component-active-color;
+$custom-control-indicator-checked-bg: $primary;
+$custom-control-indicator-checked-disabled-bg: rgba(theme-color('primary'), 0.5);
+$custom-control-indicator-checked-box-shadow: none;
+$custom-control-indicator-checked-border-color: $custom-control-indicator-checked-bg;
+
+$custom-control-indicator-focus-box-shadow: $input-focus-box-shadow;
+$custom-control-indicator-focus-border-color: $input-focus-border-color;
+
+$custom-control-indicator-active-color: $component-active-color;
+$custom-control-indicator-active-bg: lighten($component-active-bg, 35%);
+$custom-control-indicator-active-box-shadow: none;
+$custom-control-indicator-active-border-color: $custom-control-indicator-active-bg;
+
+$custom-checkbox-indicator-border-radius: $border-radius;
+$custom-checkbox-indicator-icon-checked: str-replace(
+  url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='#{$custom-control-indicator-checked-color}' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e"),
+  '#',
+  '%23'
+);
+
+$custom-checkbox-indicator-indeterminate-bg: $component-active-bg;
+$custom-checkbox-indicator-indeterminate-color: $custom-control-indicator-checked-color;
+$custom-checkbox-indicator-icon-indeterminate: str-replace(
+  url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3e%3cpath stroke='#{$custom-checkbox-indicator-indeterminate-color}' d='M0 2h4'/%3e%3c/svg%3e"),
+  '#',
+  '%23'
+);
+$custom-checkbox-indicator-indeterminate-box-shadow: none;
+$custom-checkbox-indicator-indeterminate-border-color: $custom-checkbox-indicator-indeterminate-bg;
+
+$custom-radio-indicator-border-radius: 50%;
+$custom-radio-indicator-icon-checked: str-replace(
+  url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='#{$custom-control-indicator-checked-color}'/%3e%3c/svg%3e"),
+  '#',
+  '%23'
+);
+
+$custom-switch-width: $custom-control-indicator-size * 1.75;
+$custom-switch-indicator-border-radius: $custom-control-indicator-size / 2;
+$custom-switch-indicator-size: calc(#{$custom-control-indicator-size} - #{$custom-control-indicator-border-width * 4});
+
+$custom-select-padding-y: $input-padding-y;
+$custom-select-padding-x: $input-padding-x;
+$custom-select-font-family: $input-font-family;
+$custom-select-font-size: $input-font-size;
+$custom-select-height: $input-height;
+$custom-select-indicator-padding: 1rem; // Extra padding to account for the presence of the background-image based indicator
+$custom-select-font-weight: $input-font-weight;
+$custom-select-line-height: $input-line-height;
+$custom-select-color: $input-color;
+$custom-select-disabled-color: $gray-600;
+$custom-select-bg: $input-bg;
+$custom-select-disabled-bg: $gray-200;
+$custom-select-bg-size: 8px 10px; // In pixels because image dimensions
+$custom-select-indicator-color: $gray-800;
+$custom-select-indicator: str-replace(
+  url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='#{$custom-select-indicator-color}' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e"),
+  '#',
+  '%23'
+);
+$custom-select-background: $custom-select-indicator no-repeat right $custom-select-padding-x center / $custom-select-bg-size; // Used so we can have multiple background elements (e.g., arrow and feedback icon)
+
+$custom-select-feedback-icon-padding-right: calc(
+  (1em + #{2 * $custom-select-padding-y}) * 3 / 4 + #{$custom-select-padding-x + $custom-select-indicator-padding}
+);
+$custom-select-feedback-icon-position: center right ($custom-select-padding-x + $custom-select-indicator-padding);
+$custom-select-feedback-icon-size: $input-height-inner-half $input-height-inner-half;
+
+$custom-select-border-width: $input-border-width;
+$custom-select-border-color: $input-border-color;
+$custom-select-border-radius: $border-radius;
+$custom-select-box-shadow: inset 0 1px 2px rgba($black, 0.075);
+
+$custom-select-focus-border-color: $input-focus-border-color;
+$custom-select-focus-width: $input-focus-width;
+$custom-select-focus-box-shadow: 0 0 0 $custom-select-focus-width $input-btn-focus-color;
+
+$custom-select-padding-y-sm: $input-padding-y-sm;
+$custom-select-padding-x-sm: $input-padding-x-sm;
+$custom-select-font-size-sm: $input-font-size-sm;
+$custom-select-height-sm: $input-height-sm;
+
+$custom-select-padding-y-lg: $input-padding-y-lg;
+$custom-select-padding-x-lg: $input-padding-x-lg;
+$custom-select-font-size-lg: $input-font-size-lg;
+$custom-select-height-lg: $input-height-lg;
+
+$custom-range-track-width: 100%;
+$custom-range-track-height: 0.5rem;
+$custom-range-track-cursor: pointer;
+$custom-range-track-bg: $gray-300;
+$custom-range-track-border-radius: 1rem;
+$custom-range-track-box-shadow: inset 0 0.25rem 0.25rem rgba($black, 0.1);
+
+$custom-range-thumb-width: 1rem;
+$custom-range-thumb-height: $custom-range-thumb-width;
+$custom-range-thumb-bg: $component-active-bg;
+$custom-range-thumb-border: 0;
+$custom-range-thumb-border-radius: 1rem;
+$custom-range-thumb-box-shadow: 0 0.1rem 0.25rem rgba($black, 0.1);
+$custom-range-thumb-focus-box-shadow: 0 0 0 1px $body-bg, $input-focus-box-shadow;
+$custom-range-thumb-focus-box-shadow-width: $input-focus-width; // For focus box shadow issue in IE/Edge
+$custom-range-thumb-active-bg: lighten($component-active-bg, 35%);
+$custom-range-thumb-disabled-bg: $gray-500;
+
+$custom-file-height: $input-height;
+$custom-file-height-inner: $input-height-inner;
+$custom-file-focus-border-color: $input-focus-border-color;
+$custom-file-focus-box-shadow: $input-focus-box-shadow;
+$custom-file-disabled-bg: $input-disabled-bg;
+
+$custom-file-padding-y: $input-padding-y;
+$custom-file-padding-x: $input-padding-x;
+$custom-file-line-height: $input-line-height;
+$custom-file-font-family: $input-font-family;
+$custom-file-font-weight: $input-font-weight;
+$custom-file-color: $input-color;
+$custom-file-bg: $input-bg;
+$custom-file-border-width: $input-border-width;
+$custom-file-border-color: $input-border-color;
+$custom-file-border-radius: $input-border-radius;
+$custom-file-box-shadow: $input-box-shadow;
+$custom-file-button-color: $custom-file-color;
+$custom-file-button-bg: $input-group-addon-bg;
+$custom-file-text: (
+  en: 'Browse',
+);
 
 // Form validation
 
@@ -651,16 +775,33 @@ $nav-link-padding-y: 0.5rem;
 $nav-link-padding-x: 1rem;
 $nav-link-disabled-color: $gray-600;
 
-$nav-tabs-border-color: $gray-300;
+$nav-tabs-border-color: $gray-400;
 $nav-tabs-border-width: $border-width;
 $nav-tabs-border-radius: $border-radius;
-$nav-tabs-link-hover-border-color: $gray-300 $gray-300 $nav-tabs-border-color;
+$nav-tabs-link-hover-border-color: $gray-200 $gray-200 $nav-tabs-border-color;
 $nav-tabs-link-active-color: $gray-700;
-$nav-tabs-link-active-bg: $gray-200;
-$nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg;
+$nav-tabs-link-active-bg: $card-bg;
+$nav-tabs-link-active-border-color: $gray-400 $gray-400 $nav-tabs-link-active-bg;
 
+$nav-pills-border-radius: $border-radius;
+$nav-pills-link-active-color: $component-active-color;
+$nav-pills-link-active-bg: $component-active-bg;
+
+$nav-divider-color: $gray-200;
+$nav-divider-margin-y: $spacer / 2;
+
+// Navbar
+
+$navbar-padding-y: $spacer / 2;
+$navbar-padding-x: $spacer;
+
+$navbar-nav-link-padding-x: 0.5rem;
+
+$navbar-brand-font-size: $font-size-lg;
 // Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
 $nav-link-height: $font-size-base * $line-height-base + $nav-link-padding-y * 2;
+$navbar-brand-height: $navbar-brand-font-size * $line-height-base;
+$navbar-brand-padding-y: ($nav-link-height - $navbar-brand-height) / 2;
 
 $navbar-toggler-padding-y: 0.25rem;
 $navbar-toggler-padding-x: 0.75rem;
@@ -703,20 +844,21 @@ $dropdown-padding-y: 0.5rem;
 $dropdown-spacer: 0.125rem;
 $dropdown-font-size: $font-size-base;
 $dropdown-color: $body-color;
-$dropdown-bg: #191919;
-$dropdown-border-color: lighten($gray-200, 4%);
+$dropdown-bg: $white;
+$dropdown-border-color: rgba($black, 0.15);
 $dropdown-border-radius: $border-radius;
-$dropdown-border-width: 1px;
+$dropdown-border-width: 0;
 $dropdown-inner-border-radius: calc(#{$dropdown-border-radius} - #{$dropdown-border-width});
 $dropdown-divider-bg: $gray-200;
+$dropdown-divider-margin-y: $nav-divider-margin-y;
 $dropdown-box-shadow: 0 0.5rem 1rem rgba($black, 0.175);
 
-$dropdown-link-color: #dcdcdc;
+$dropdown-link-color: $gray-900;
 $dropdown-link-hover-color: darken($gray-900, 5%);
-$dropdown-link-hover-bg: $gray-300;
+$dropdown-link-hover-bg: $gray-100;
 
 $dropdown-link-active-color: darken($gray-900, 5%);
-$dropdown-link-active-bg: $gray-300;
+$dropdown-link-active-bg: $gray-100;
 
 $dropdown-link-disabled-color: $gray-600;
 
@@ -735,13 +877,25 @@ $pagination-padding-y-lg: 0.75rem;
 $pagination-padding-x-lg: 1.5rem;
 $pagination-line-height: 1.25;
 
-$pagination-color: $gray-500;
-$pagination-bg: $gray-200;
+$pagination-color: $gray-600;
+$pagination-bg: $white;
 $pagination-border-width: $border-width;
-$pagination-border-color: $gray-300;
+$pagination-border-color: $gray-400;
 
 $pagination-focus-box-shadow: $input-btn-focus-box-shadow;
 $pagination-focus-outline: 0;
+
+$pagination-hover-color: $link-hover-color;
+$pagination-hover-bg: $gray-200;
+$pagination-hover-border-color: $gray-400;
+
+$pagination-active-color: $component-active-color;
+$pagination-active-bg: $component-active-bg;
+$pagination-active-border-color: $pagination-active-bg;
+
+$pagination-disabled-color: $gray-400;
+$pagination-disabled-bg: $white;
+$pagination-disabled-border-color: $gray-400;
 
 // Jumbotron
 
@@ -760,10 +914,9 @@ $card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-width});
 $card-cap-bg: $gray-300;
 $card-cap-color: null;
 $card-color: null;
-$card-bg: #191919;
-$card-bg-active: darken($card-bg, 2%);
+$card-bg: $white;
 
-$card-title-desc: $gray-400;
+$card-title-desc: $gray-600;
 
 $card-img-overlay-padding: 1.25rem;
 
@@ -809,7 +962,7 @@ $popover-border-radius: $border-radius-lg;
 $popover-box-shadow: 0 0.25rem 0.5rem rgba($black, 0.2);
 
 $popover-header-bg: darken($popover-bg, 3%);
-$popover-header-color: $gray-200;
+$popover-header-color: $headings-color;
 $popover-header-padding-y: 0.5rem;
 $popover-header-padding-x: 0.75rem;
 
@@ -867,7 +1020,7 @@ $modal-dialog-margin-y-sm-up: 1.75rem;
 $modal-title-line-height: $line-height-base;
 
 $modal-content-color: null;
-$modal-content-bg: $gray-200;
+$modal-content-bg: $white;
 $modal-content-border-color: $gray-300;
 $modal-content-border-width: $border-width;
 $modal-content-border-radius: $border-radius-lg;
@@ -920,6 +1073,31 @@ $progress-bar-bg: theme-color('primary');
 $progress-bar-animation-timing: 1s linear infinite;
 $progress-bar-transition: width 0.6s ease;
 
+// List group
+
+$list-group-color: null;
+$list-group-bg: $white;
+$list-group-border-color: $border-color;
+$list-group-border-width: $border-width;
+$list-group-border-radius: $border-radius;
+
+$list-group-item-padding-y: 0.75rem;
+$list-group-item-padding-x: 1.25rem;
+
+$list-group-hover-bg: $gray-100;
+$list-group-active-color: $component-active-color;
+$list-group-active-bg: $component-active-bg;
+$list-group-active-border-color: $list-group-active-bg;
+
+$list-group-disabled-color: $gray-600;
+$list-group-disabled-bg: $list-group-bg;
+
+$list-group-action-color: $gray-700;
+$list-group-action-hover-color: $list-group-action-color;
+
+$list-group-action-active-color: $body-color;
+$list-group-action-active-bg: $gray-200;
+
 // Image thumbnails
 
 $thumbnail-padding: 0.25rem;
@@ -943,8 +1121,8 @@ $breadcrumb-item-padding: 0.5rem;
 $breadcrumb-margin-bottom: 1rem;
 
 $breadcrumb-bg: $gray-200;
-$breadcrumb-divider-color: $gray-400;
-$breadcrumb-active-color: $gray-400;
+$breadcrumb-divider-color: $gray-600;
+$breadcrumb-active-color: $gray-600;
 $breadcrumb-divider: quote('/');
 
 $breadcrumb-border-radius: $border-radius;
@@ -1024,6 +1202,3 @@ $positions: static, relative, absolute, fixed, sticky;
 
 $print-page-size: a3;
 $print-body-min-width: map-get($grid-breakpoints, 'lg');
-
-$react-select-border: $input-border-color;
-$react-select-bg: $input-bg;

@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 
 const initialState = {
   ...defaultTheme,
-  isDark: false,
+  isDark: false, // Explicitly disable dark theme
   setThemeMode: () => {},
   setThemeLayout: () => {},
   toggleMonochromeMode: () => {},
@@ -31,7 +31,7 @@ export function ThemeProvider({ children }) {
   const isDarkOS = useMediaQuery(COLOR_SCHEME_QUERY);
 
   const [settings, setSettings] = useLocalStorage('settings', {
-    themeMode: initialState.themeMode,
+    themeMode: 'light', // Force light mode
     themeLayout: initialState.themeLayout,
     cardSkin: initialState.cardSkin,
     isMonochrome: initialState.isMonochrome,
@@ -41,7 +41,8 @@ export function ThemeProvider({ children }) {
     notification: { ...initialState.notification },
   });
 
-  const isDark = (settings.themeMode === 'system' && isDarkOS) || settings.themeMode === 'dark';
+  // Force isDark to always be false - dark theme disabled
+  const isDark = false;
 
   const setThemeMode = val => {
     setSettings(settings => {
@@ -148,7 +149,8 @@ export function ThemeProvider({ children }) {
   };
 
   useEffect(() => {
-    isDark ? _html.classList.add('dark') : _html.classList.remove('dark');
+    // Force remove dark class since dark theme is disabled
+    _html.classList.remove('dark');
   }, [isDark]);
 
   useEffect(() => {
@@ -183,7 +185,7 @@ export function ThemeProvider({ children }) {
     <ThemeContext
       value={{
         ...settings,
-        isDark,
+        isDark: false,
         setMonochromeMode,
         setThemeMode,
         setThemeLayout,

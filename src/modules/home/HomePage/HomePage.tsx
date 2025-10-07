@@ -1,18 +1,37 @@
+import React, { memo, useMemo } from 'react';
 import { useBloc } from '@core/utils/bloc';
 import { CustomHeader } from '@modules/common';
-import React, { memo } from 'react';
-import { Row } from 'reactstrap';
 import { HomePageBloc } from './HomePageBloc';
 import { useHistory } from '@core/router';
 import { PageHeader } from '@modules/common/PageHeader';
 import { Page } from '@modules/common/Page';
 import { useMainPageConfig } from '@modules/MainPage/context';
-import { Card } from 'antd';
+import { TabItem, Tabs } from '@core/components/Tabs';
+import { SubmissionTable } from './Tabs/SubmissionTable/SubmissionTable';
+import { useObservable } from '@core/utils/hooks/rxjs';
 
 export const HomePage = memo(() => {
   const bloc = useBloc(HomePageBloc);
   useMainPageConfig(() => ({ sidebar: false, header: false }));
   const history = useHistory();
+
+  const tabs: TabItem[] = useMemo(
+    () => [
+      {
+        title: 'Submissions',
+        icon: 'fas fa-table',
+        component: SubmissionTable,
+        props: { bloc },
+      },
+      {
+        title: 'Funded',
+        icon: 'fas fa-check',
+        component: SubmissionTable,
+        props: { bloc },
+      },
+    ],
+    [],
+  );
 
   return (
     <Page className="min-w-0 mb-4" noSidebar>
@@ -32,9 +51,7 @@ export const HomePage = memo(() => {
           Dashboard
         </PageHeader>
       </CustomHeader>
-      <Row className="mb-2">
-        <Card className="rounded-lg mt-4">This is your dashboard. Use the navigation menu to access different sections of the application.</Card>
-      </Row>
+      <Tabs tabs={tabs} />
     </Page>
   );
 });

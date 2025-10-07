@@ -65,7 +65,7 @@ export const ModalDrawer = memo((props: PropsWithChildren<ModalProps>) => {
       <ClassNames>
         {({ css }) => (
           <Dialog
-            componentsProps={{ backdrop: { className: 'dark:bg-black/40' } }}
+            componentsProps={{ backdrop: { className: '' } }}
             className="drawer-modal_root backdrop-blur"
             open
             disablePortal
@@ -90,8 +90,8 @@ export const ModalDrawer = memo((props: PropsWithChildren<ModalProps>) => {
                 maxWidth: `${maxWidth} !important`,
 
                 borderWidth: '1px',
-                borderColor: 'rgba(255, 255, 255, 0.1)',
-                boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+                // borderColor: 'rgba(0, 0, 0, 0.1)', // Light theme border
+                // boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
                 borderRadius: props.borderRadius && `${props.borderRadius}px !important`,
               }),
             }}

@@ -27,7 +27,7 @@ const DEFAULT_PRIMARY_COLOR = 'indigo';
 
 // Default theme configuration
 export const defaultTheme: ThemeConfig = {
-  themeMode: 'light',
+  themeMode: 'light', // Force light mode - dark theme disabled
   // Options: "light", "dark", "system"
   isMonochrome: false,
   // If true, the theme uses a monochrome color palette

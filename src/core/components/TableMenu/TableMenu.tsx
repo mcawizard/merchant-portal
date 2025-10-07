@@ -7,6 +7,7 @@ export interface TableMenuProps {
   onDelete?: () => void;
   onRevokeAccess?: () => void;
   onDuplicate?: () => void;
+  onUpload?: () => void;
   onEdit?: () => void;
   onActivate?: () => void;
   activeOptions?: { activeTitle?: string; activeIcon?: string; inactiveTitle?: string; inactiveIcon?: string; isActive?: boolean };
@@ -16,7 +17,19 @@ export interface TableMenuProps {
 }
 
 export const TableMenu = memo((props: TableMenuProps) => {
-  const { vertical, onDelete, onRevokeAccess, onEdit, onDuplicate, onActivate, activeOptions, inline, clickable = false, items = [] } = props;
+  const {
+    vertical,
+    onDelete,
+    onRevokeAccess,
+    onEdit,
+    onDuplicate,
+    onUpload,
+    onActivate,
+    activeOptions,
+    inline,
+    clickable = false,
+    items = [],
+  } = props;
   return (
     <Menu
       trigger={'click'}
@@ -38,6 +51,12 @@ export const TableMenu = memo((props: TableMenuProps) => {
           icon: 'fa-duotone fa-copy',
           onClick: onDuplicate,
           visible: !!onDuplicate,
+        },
+        {
+          title: 'Upload',
+          icon: 'fa-duotone fa-upload',
+          onClick: onUpload,
+          visible: !!onUpload,
         },
         ...items,
         { title: '', divider: true, visible: !!onDelete },

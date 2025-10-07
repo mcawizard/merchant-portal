@@ -8,12 +8,10 @@ interface NProgressProps {
 
 export const NProgress = memo((props: NProgressProps) => {
   const { isAnimating } = props;
-  const { primaryColorScheme: primary } = useThemeContext();
+  const { primaryColorScheme: primary, isDark } = useThemeContext();
   const { animationDuration, isFinished, progress } = useNProgress({
     isAnimating,
   });
-
-  const isDark = true;
 
   return (
     <div

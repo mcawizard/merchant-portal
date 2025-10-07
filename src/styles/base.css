@@ -1,33 +1,44 @@
 /* Basic styles */
 html {
+  /* Light theme surface colors */
   @apply h-full [--surface-1:var(--color-gray-50)] [--surface-2:var(--color-gray-100)] [--surface-3:var(--color-gray-200)] [-webkit-tap-highlight-color:transparent] [text-rendering:optimizeLegibility];
 }
 
+/* Dark theme surface colors */
 html.dark {
-  @apply [--surface-1:var(--color-dark-450)] [--surface-2:var(--color-dark-500)] [--surface-3:var(--color-dark-600)] [color-scheme:dark];
+  @apply [--surface-1:var(--color-dark-450)] [--surface-2:var(--color-dark-500)] [--surface-3:var(--color-dark-600)];
 }
 
+/* Light theme bordered card skin */
 html[data-card-skin="bordered"] {
   @apply [--surface-1:var(--color-gray-100)] [--surface-2:var(--color-gray-200)] [--surface-3:var(--color-gray-300)];
 }
 
+/* Dark theme bordered card skin */
 html.dark[data-card-skin="bordered"] {
-  @apply [--surface-1:var(--color-dark-500)] [--surface-2:var(--color-dark-600)] [--surface-3:var(--color-dark-700)];
+  @apply [--surface-1:var(--color-dark-500)] [--surface-2:var(--color-dark-600)] [--surface-3:var(--color-gray-100)];
 }
+
+/* Dark theme color scheme already handled above */
 
 body {
   @apply h-full font-sans text-sm leading-5 text-gray-700 antialiased [text-rendering:optimizeLegibility] dark:text-dark-200 dark:[color-scheme:dark];
-  background: #ffffff;
+  /* Light theme background */
+  background: linear-gradient(90deg, #f8fafc, #f1f5f9);
 }
 
+/* Dark theme background */
+body.dark,
 .dark body {
   background: linear-gradient(90deg, #041024, #1A031D);
 }
 
+/* Light theme with bordered card skin */
 [data-card-skin="bordered"] body {
-  background: #ffffff;
+  background: linear-gradient(90deg, #f8fafc, #f1f5f9);
 }
 
+/* Dark theme with bordered card skin */
 .dark[data-card-skin="bordered"] body {
   background: linear-gradient(90deg, #041024, #1A031D);
 }

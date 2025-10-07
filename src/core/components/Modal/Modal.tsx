@@ -67,7 +67,7 @@ export const Modal = memo((props: PropsWithChildren<ModalProps>) => {
     if (props.dark) {
       return createTheme({
         palette: {
-          mode: 'dark',
+          mode: 'light',
         },
         zIndex: {
           modal: 1010,
@@ -105,7 +105,11 @@ export const Modal = memo((props: PropsWithChildren<ModalProps>) => {
         {({ css }) => (
           <ThemeProvider theme={theme}>
             <Dialog
-              componentsProps={{ backdrop: { className: 'dark:bg-black/40' } }}
+              componentsProps={{
+                backdrop: {
+                  // className: 'dark:bg-black/40'
+                },
+              }}
               open
               TransitionComponent={transition && Transition}
               //onClose={props.backdropClose === false ? undefined : modal.close}
@@ -130,14 +134,14 @@ export const Modal = memo((props: PropsWithChildren<ModalProps>) => {
                   maxWidth: `${maxWidth} !important`,
                   // borderRadius: props.borderRadius && `${props.borderRadius}px !important`,
                   borderRadius: `0.5rem !important`,
-                  background: 'linear-gradient(90deg, #041024, #1A031D)',
+                  // background: 'linear-gradient(90deg, #041024, #1A031D)',
                   borderWidth: '1px',
-                  borderColor: 'rgba(255, 255, 255, 0.1)',
-                  boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
-                  ...(props.dark && {
-                    background: '#000',
-                    color: '#fff',
-                  }),
+                  // borderColor: 'rgba(255, 255, 255, 0.1)',
+                  // boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+                  // ...(props.dark && {
+                  //   background: '#000',
+                  //   color: '#fff',
+                  // }),
 
                   ...(props.paperStyle || ({} as any)),
                 }),
@@ -151,19 +155,19 @@ export const Modal = memo((props: PropsWithChildren<ModalProps>) => {
               disableEnforceFocus
               disableScrollLock={props.disableScrollLock}
               fullScreen={props.fullScreen}
-              sx={
-                props.dark
-                  ? {
-                      background: '#000',
-                      '& .MuiPaper-root': {
-                        background: '#000',
-                      },
-                      '& .MuiBackdrop-root': {
-                        backgroundColor: 'transparent', // Try to remove this to see the result
-                      },
-                    }
-                  : {}
-              }
+              // sx={
+              //   props.dark
+              //     ? {
+              //         background: '#000',
+              //         '& .MuiPaper-root': {
+              //           background: '#000',
+              //         },
+              //         '& .MuiBackdrop-root': {
+              //           backgroundColor: 'transparent', // Try to remove this to see the result
+              //         },
+              //       }
+              //     : {}
+              // }
             >
               {props.children}
             </Dialog>

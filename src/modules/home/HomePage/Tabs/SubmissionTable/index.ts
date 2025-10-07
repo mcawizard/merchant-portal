@@ -1,0 +1,1 @@
+export { SubmissionTable as default } from './SubmissionTable';

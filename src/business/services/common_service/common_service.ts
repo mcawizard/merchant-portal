@@ -1,3 +1,4 @@
+import { CompanyAddressResponse } from '@business/entities/company';
 import { UserResponse, UserRole } from '@business/entities/user';
 import { TenantConfig } from '@core/utils/config';
 import { R } from '@core/utils/r';
@@ -102,4 +103,12 @@ export function hasFullAccess(user: UserResponse | null): boolean {
   if (!user) return false;
   if (isOohcodersAccount()) return true;
   return user.email === 'system@oohcoders.com' || user.email === 'nabeel@oohcoders.com';
+}
+
+export function getAddress(address: CompanyAddressResponse) {
+  if (!address) return '';
+  const parts = [address.company_street, address.company_city, address.company_state, address.company_zip, address.company_country].filter(
+    part => part && part.trim() !== '',
+  );
+  return parts.join(', ');
 }

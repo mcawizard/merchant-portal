@@ -7,6 +7,7 @@ interface AppConfig {
 
   API_URL: string;
   API_URL_NAKED: string;
+  API_URL_MERCHANT: string;
 
   DEV_USERNAME?: string;
   DEV_PASSWORD?: string;
