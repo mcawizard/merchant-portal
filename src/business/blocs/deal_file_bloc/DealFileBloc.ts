@@ -1,5 +1,5 @@
 import { DealFileAPI } from '@business/api/deal_file_api';
-import { DealFileRequest } from '@business/entities/deal-file';
+import { handleMessage, requestMessage } from '@business/messages';
 import { BaseBloc } from '@core/utils/bloc';
 import { Repository } from '@core/utils/repository';
 import { FileFormData } from '@modules/home/HomePage/components/AddEditFileModal/AddEditFileModal';
@@ -17,6 +17,11 @@ export class DealFileBloc extends BaseBloc {
   }
 
   create = (data: FileFormData) => {
-    return DealFileAPI.create(data).pipe(this.itemRepo.ops.addOne(item => item));
+    return DealFileAPI.create(data).pipe(
+      this.itemRepo.ops.addOne(item => item),
+      handleMessage({
+        type: requestMessage('file_uploaded'),
+      }),
+    );
   };
 }

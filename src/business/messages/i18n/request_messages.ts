@@ -51,4 +51,9 @@ export const REQUEST_MESSAGES = {
 
   // submission messages
   fetch_submission_error: () => t`Unable to fetch prompt history versions`,
+
+  file_uploaded: () => ({
+    success: t`File uploaded successfully`,
+    error: t`Unable to upload file`,
+  }),
 };
