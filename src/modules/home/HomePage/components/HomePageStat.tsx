@@ -1,14 +1,15 @@
 import { HomeStatResponse } from '@business/entities/home';
-import { Card, ConfigProvider, Tooltip } from 'antd';
+import { Card, ConfigProvider, Skeleton, Tooltip } from 'antd';
 import React, { memo } from 'react';
 import CountUp from 'react-countup';
 import { ComingSoon } from './ComingSoon';
 export interface HomePageStatProps {
   stat: HomeStatResponse;
+  loading?: boolean;
 }
 
 export const HomePageStat = memo((props: HomePageStatProps) => {
-  const { stat } = props;
+  const { stat, loading } = props;
   return (
     <ConfigProvider theme={{ components: { Card: { padding: 12, paddingLG: 12 } } }}>
       <div className="mt-4 flex-fill ">
@@ -25,15 +26,19 @@ export const HomePageStat = memo((props: HomePageStatProps) => {
                 </div>
               </div>
               <div className="text-xl font-bold mb-2">
-                <CountUp
-                  start={0}
-                  end={stat.value}
-                  duration={1}
-                  decimals={stat.prefix == '$' ? 2 : 0}
-                  prefix={stat.prefix}
-                  separator=","
-                  style={{ fontWeight: 500 }}
-                />
+                {loading ? (
+                  <Skeleton.Input style={{ width: 100 }} active size="small" />
+                ) : (
+                  <CountUp
+                    start={0}
+                    end={stat.value}
+                    duration={1}
+                    decimals={stat.prefix == '$' ? 2 : 0}
+                    prefix={stat.prefix}
+                    separator=","
+                    style={{ fontWeight: 500 }}
+                  />
+                )}
               </div>
             </div>
             <div

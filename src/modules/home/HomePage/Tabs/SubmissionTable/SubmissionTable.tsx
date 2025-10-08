@@ -2,23 +2,22 @@ import React, { memo } from 'react';
 import { Table } from '@modules/common';
 import { ColumnType } from 'antd/es/table';
 import { TableMenu } from '@core/components/TableMenu';
-import { SubmissionResponse } from '@business/entities/submissions/SubmissionResponse';
-import { HomePageBloc } from '../../HomePageBloc';
-import { useObservable } from '@core/utils/hooks/rxjs';
+import { CompactSubmissionResponse, SubmissionResponse } from '@business/entities/submissions/SubmissionResponse';
+import { useNonNilObservable } from '@core/utils/hooks/rxjs';
 import { Formatter } from '@core/utils/formatter';
 import { CommonService } from '@business/services';
 import { Card } from 'antd';
 import { openAddEditFileModal } from '../../components/AddEditFileModal';
+import { SubmissionTableBloc } from './SubmissionTableBloc';
+import { useBloc } from '@core/utils/bloc';
+import { useLoadingState } from '@core/utils/repository/loading_state';
 
-export interface SubmissionTableProps {
-  bloc: HomePageBloc;
-}
+export const SubmissionTable = memo(() => {
+  const bloc = useBloc(SubmissionTableBloc);
+  const submissions = useNonNilObservable(bloc.submission$);
+  const loading = useLoadingState(bloc.loading);
 
-export const SubmissionTable = memo((props: SubmissionTableProps) => {
-  const { bloc } = props;
-  const submissions = useObservable(bloc.submission$, []);
-
-  const columns: ColumnType<SubmissionResponse>[] = [
+  const columns: ColumnType<CompactSubmissionResponse>[] = [
     {
       title: 'Submission',
       dataIndex: 'contractMID',
@@ -76,7 +75,7 @@ export const SubmissionTable = memo((props: SubmissionTableProps) => {
 
   return (
     <Card>
-      <Table columns={columns} dataSource={submissions} rowHoverable rowKey={'id'} />
+      <Table columns={columns} dataSource={submissions} rowHoverable rowKey={'id'} loading={loading.loading} />
     </Card>
   );
 });
