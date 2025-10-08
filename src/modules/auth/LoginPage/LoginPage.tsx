@@ -11,12 +11,12 @@ import { R } from '@core/utils/r';
 import { tapError } from '@core/utils/rxjs/operators';
 import { Session } from '@modules/auth/session';
 import { Link } from 'react-router-dom';
-import { Card, CardBody, Col, Container, Row } from 'reactstrap';
 import { of } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { t } from 'ttag';
 import { defineLoginForm, LoginFormData } from './LoginForm';
 import { PageTitle } from '@modules/common/PageHeader';
+import { Card } from 'antd';
 
 export const LoginPage = memo(() => {
   const form = useMemo(() => defineLoginForm(), []);
