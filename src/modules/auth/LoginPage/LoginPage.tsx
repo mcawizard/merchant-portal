@@ -61,11 +61,11 @@ export const LoginPage = memo(() => {
     <Fragment>
       <PageTitle>Login</PageTitle>
       <main className="min-h-100vh grid w-full grow grid-cols-1 place-items-center">
-        <div className="w-full max-w-[26rem] p-4 sm:px-5">
-          <div className="text-center">
-            <img src={Styles.assets('images/logo.png')} alt="Lendwizely" style={{ height: 70 }} className="mx-auto" />
-          </div>
-          <Card className="rounded-lg mt-4">
+        <Card className="rounded-lg">
+          <div className="w-full max-w-[26rem] sm:px-5">
+            <div className="text-center pb-4">
+              <img src={Styles.assets('images/logo.png')} alt="Lendwizely" style={{ height: 70 }} className="mx-auto" />
+            </div>
             <FormContainer onSubmit={form.submit}>
               <div className="space-y-4">
                 <FormInput control={form.controls.username} />
@@ -85,9 +85,9 @@ export const LoginPage = memo(() => {
                 Sign In
               </Button>
             </FormContainer>
-          </Card>
-          <div className="mt-8 flex justify-center text-xs text-gray-400 dark:text-dark-300">© {new Date().getFullYear()} Lendwizely.</div>
-        </div>
+            <div className="mt-8 flex justify-center text-xs text-gray-400 dark:text-dark-300">© {new Date().getFullYear()} Lendwizely.</div>
+          </div>
+        </Card>
       </main>
     </Fragment>
   );
