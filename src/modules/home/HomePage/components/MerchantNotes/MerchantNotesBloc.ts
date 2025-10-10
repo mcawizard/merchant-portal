@@ -53,7 +53,6 @@ export class MerchantNotesBloc extends BaseBloc {
   create = (data: CreateMerchantNoteRequest) => {
     return this.merchantNoteBloc.create(data).pipe(
       tap(newNote => {
-        debugger;
         // Add new note to the top of the list (newest at top)
         const currentItems = this.paginated.items$.value;
         this.paginated.items$.next([...[newNote], ...currentItems]);
