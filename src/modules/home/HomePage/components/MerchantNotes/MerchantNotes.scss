@@ -1,0 +1,453 @@
+.merchant-notes-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff !important;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0 !important;
+  overflow: hidden;
+  max-width: 100%;
+  min-width: 0;
+
+  .ant-card-body {
+    padding: 0 !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff !important;
+  }
+
+  // Header
+  .merchant-notes-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+
+    .header-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      color: #1f2937;
+
+      i {
+        font-size: 18px;
+        color: #3b82f6;
+      }
+    }
+
+    .header-actions {
+      .ant-btn {
+        border: 1px solid #e5e7eb;
+        color: #6b7280;
+
+        &:hover {
+          border-color: #3b82f6;
+          color: #3b82f6;
+        }
+
+        i {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  // Content Area
+  .merchant-notes-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 300px;
+    max-height: 500px;
+    scroll-behavior: smooth;
+    position: relative;
+    word-wrap: break-word;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f9fafb;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 3px;
+
+      &:hover {
+        background: #9ca3af;
+      }
+    }
+
+    // Loading State
+    .notes-loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 60px 20px;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    // Empty State
+    .notes-empty {
+      padding: 60px 20px;
+      text-align: center;
+
+      .ant-empty-description {
+        color: #6b7280;
+        font-size: 14px;
+      }
+
+      p {
+        margin-top: 8px;
+        font-size: 13px;
+        color: #9ca3af;
+      }
+    }
+
+    // Notes List
+    .notes-list {
+      padding: 16px 0;
+    }
+
+    // Loading more indicator (at top)
+    .notes-loading-more {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      color: #6b7280;
+      font-size: 13px;
+      background: #f9fafb;
+      border-bottom: 1px solid #f3f4f6;
+
+      span {
+        font-weight: 500;
+      }
+    }
+
+    // Scroll to bottom indicator
+    .scroll-to-bottom-indicator {
+      position: sticky;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: #3b82f6;
+      color: white;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(59, 130, 246, 0.3);
+      transition: all 0.2s ease;
+      z-index: 10;
+      margin: 0 auto;
+      width: fit-content;
+
+      &:hover {
+        background: #2563eb;
+        transform: translateX(-50%) translateY(-2px);
+        box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+      }
+
+      i {
+        font-size: 10px;
+        animation: bounce 1s infinite;
+      }
+    }
+  }
+
+  // Note Item
+  .merchant-note-item {
+    padding: 16px 20px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #f9fafb;
+    }
+
+    .note-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      position: relative;
+
+      .note-meta {
+        flex: 1;
+
+        .note-author {
+          font-weight: 600;
+          font-size: 14px;
+          color: #1f2937;
+          margin-bottom: 2px;
+        }
+
+        .note-time {
+          font-size: 12px;
+          color: #6b7280;
+        }
+      }
+
+      .note-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 4px;
+        margin-left: auto;
+
+        .note-pinned {
+          color: #f59e0b;
+          font-size: 14px;
+          padding: 4px;
+          border-radius: 4px;
+          background: rgba(245, 158, 11, 0.15);
+          border: 1px solid rgba(245, 158, 11, 0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 24px;
+          height: 24px;
+          box-shadow: 0 1px 3px rgba(245, 158, 11, 0.2);
+
+          i {
+            transform: rotate(-15deg);
+          }
+        }
+
+        .note-id {
+          font-size: 10px;
+          color: #9ca3af;
+          font-weight: 500;
+          letter-spacing: 0.05em;
+        }
+      }
+    }
+
+    .note-content {
+      margin-left: 52px;
+      position: relative;
+
+      .note-text {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #374151;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        margin-bottom: 8px;
+      }
+
+      .note-type-badge {
+        display: inline-block;
+        background: #e0f2fe;
+        color: #0369a1;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  // Note Divider
+  .note-divider {
+    margin: 0 20px;
+    border-color: #f3f4f6;
+  }
+
+  // Create Note Divider
+  .create-note-divider {
+    margin: 0;
+    border-color: #e5e7eb;
+  }
+
+  // Header Actions (Create Note Box at top)
+  .merchant-notes-header-actions {
+    padding: 16px 20px;
+    background: #fafbfc;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  // Footer (if used)
+  .merchant-notes-footer {
+    border-top: 1px solid #f0f0f0;
+    background: #fafbfc;
+    padding: 16px 20px;
+  }
+
+  // Create Note Box
+  .create-note-box {
+    .create-note-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+
+      .create-note-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #6b7280;
+      }
+    }
+
+    .create-note-input {
+      .note-textarea {
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        font-size: 14px;
+
+        &:focus,
+        &:hover {
+          border-color: #3b82f6;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .ant-input {
+          border: none;
+          box-shadow: none;
+          padding: 12px;
+          font-size: 14px;
+          line-height: 1.4;
+
+          &::placeholder {
+            color: #9ca3af;
+          }
+        }
+      }
+
+      .create-note-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 12px;
+
+        .note-hint {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 12px;
+          color: #9ca3af;
+
+          i {
+            font-size: 11px;
+          }
+        }
+
+        .ant-btn-primary {
+          background: #3b82f6;
+          border-color: #3b82f6;
+          border-radius: 6px;
+          font-weight: 500;
+          transition: all 0.2s ease;
+
+          &:hover {
+            background: #2563eb;
+            border-color: #2563eb;
+            transform: translateY(-1px);
+          }
+
+          &:disabled {
+            background: #e5e7eb;
+            border-color: #e5e7eb;
+            color: #9ca3af;
+            transform: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .merchant-notes-card {
+    .merchant-notes-header {
+      padding: 12px 16px;
+
+      .header-title {
+        font-size: 15px;
+        gap: 10px;
+
+        i {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .merchant-note-item {
+      padding: 12px 16px;
+
+      .note-content {
+        margin-left: 44px;
+      }
+    }
+
+    .merchant-notes-footer {
+      padding: 12px 16px;
+    }
+
+    .create-note-box {
+      .create-note-input {
+        .create-note-actions {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 8px;
+
+          .note-hint {
+            justify-content: center;
+            order: 2;
+          }
+
+          .ant-btn {
+            order: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes slideInNote {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-4px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+.merchant-note-item.new-note {
+  animation: slideInNote 0.3s ease-out;
+}

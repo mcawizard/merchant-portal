@@ -1,12 +1,10 @@
 import React, { memo } from 'react';
 import { Table } from '@modules/common';
 import { ColumnType } from 'antd/es/table';
-import { TableMenu } from '@core/components/TableMenu';
 import { FundedSubmissionResponse } from '@business/entities/submissions/SubmissionResponse';
 import { useNonNilObservable } from '@core/utils/hooks/rxjs';
 import { Formatter } from '@core/utils/formatter';
 import { Card } from 'antd';
-import { openAddEditFileModal } from '../../components/AddEditFileModal';
 import { FundedTableBloc } from './FundedTableBloc';
 import { useBloc } from '@core/utils/bloc';
 import { useLoadingState } from '@core/utils/repository/loading_state';
@@ -64,8 +62,12 @@ export const FundedTable = memo(() => {
       render: (_, item) => {
         return (
           <div className="d-flex" style={{ gap: 8 }}>
-            <Button onClick={() => {}}>Renewal</Button>
-            <Button onClick={() => {}}>Payoff</Button>
+            <Button size="small" onClick={() => {}}>
+              Renewal
+            </Button>
+            <Button size="small" onClick={() => {}}>
+              Payoff
+            </Button>
           </div>
         );
       },

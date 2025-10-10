@@ -2,11 +2,10 @@ import React, { memo } from 'react';
 import { Table } from '@modules/common';
 import { ColumnType } from 'antd/es/table';
 import { TableMenu } from '@core/components/TableMenu';
-import { CompactSubmissionResponse, SubmissionResponse } from '@business/entities/submissions/SubmissionResponse';
+import { CompactSubmissionResponse } from '@business/entities/submissions/SubmissionResponse';
 import { useNonNilObservable } from '@core/utils/hooks/rxjs';
 import { Formatter } from '@core/utils/formatter';
 import { CommonService } from '@business/services';
-import { Card } from 'antd';
 import { openAddEditFileModal } from '../../components/AddEditFileModal';
 import { SubmissionTableBloc } from './SubmissionTableBloc';
 import { useBloc } from '@core/utils/bloc';
@@ -59,6 +58,7 @@ export const SubmissionTable = memo(() => {
       render: (_, item) => Formatter.formatCurrency(item.dealLenderOffer.lender_payment, 'USD'),
     },
     {
+      title: 'Actions',
       width: 50,
       render: (_, item) => (
         <TableMenu
@@ -73,9 +73,5 @@ export const SubmissionTable = memo(() => {
     },
   ];
 
-  return (
-    <Card>
-      <Table columns={columns} dataSource={submissions} rowHoverable rowKey={'id'} loading={loading.loading} />
-    </Card>
-  );
+  return <Table columns={columns} dataSource={submissions} rowHoverable rowKey={'id'} loading={loading.loading} />;
 });

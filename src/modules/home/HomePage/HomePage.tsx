@@ -12,6 +12,8 @@ import { HomePageStat } from './components/HomePageStat';
 import { useObservable } from '@core/utils/hooks/rxjs';
 import { useLoadingState } from '@core/utils/repository/loading_state';
 import FundedTable from './Tabs/FundedTable';
+import { Card } from 'antd';
+import MerchantNotes from './components/MerchantNotes';
 
 export const HomePage = memo(() => {
   useMainPageConfig(() => ({ sidebar: false, header: false }));
@@ -48,7 +50,16 @@ export const HomePage = memo(() => {
           ))}
         </Col>
       </Row>
-      <Tabs tabs={tabs} />
+      <Row>
+        <Col sm={8}>
+          <Card>
+            <Tabs tabs={tabs} />
+          </Card>
+        </Col>
+        <Col sm={4}>
+          <MerchantNotes />
+        </Col>
+      </Row>
     </Page>
   );
 });

@@ -1,3 +1,5 @@
+import { MerchantResponse } from '../merchant';
+
 export interface UserResponse {
   token?: string;
 
@@ -10,6 +12,7 @@ export interface UserResponse {
   image_path: string;
   role: UserRole;
   companyName?: string;
+  merchant: MerchantResponse;
 }
 
 export enum UserRole {

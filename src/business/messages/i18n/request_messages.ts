@@ -5,6 +5,8 @@ export const REQUEST_MESSAGES = {
 
   fetch_general_error: () => t`Error occured while getting data`,
   fetch_settings_error: () => t`Unable to fetch settings`,
+  fetch_submission_error: () => t`Unable to fetch submissions`,
+  fetch_merchant_notes_error: () => t`Unable to fetch merchant notes`,
   fetch_category_error: () => t`Unable to fetch categories`,
   update_general_error: () => t`Error occured while updating data`,
   fetch_tools_error: () => t`Unable to fetch tools`,
@@ -49,11 +51,13 @@ export const REQUEST_MESSAGES = {
     error: t`Unable to delete dashboard`,
   }),
 
-  // submission messages
-  fetch_submission_error: () => t`Unable to fetch prompt history versions`,
-
   file_uploaded: () => ({
     success: t`File uploaded successfully`,
     error: t`Unable to upload file`,
+  }),
+
+  create_note: () => ({
+    success: t`Note created successfully`,
+    error: t`Unable to create note`,
   }),
 };

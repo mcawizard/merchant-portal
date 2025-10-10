@@ -6,6 +6,7 @@ import { SettingsBloc } from './settings_bloc';
 import { SubmissionBloc } from './submission_bloc';
 import { FileCategoriesBloc } from './file_categories_bloc';
 import { DealFileBloc } from './deal_file_bloc';
+import { MerchantNoteBloc } from './merchant_note_bloc';
 
 export const BLOCS: [TokenData<BaseBloc>, Constructor<BaseBloc>][] = [
   [Blocs.user, UserBloc],
@@ -13,4 +14,5 @@ export const BLOCS: [TokenData<BaseBloc>, Constructor<BaseBloc>][] = [
   [Blocs.submission, SubmissionBloc],
   [Blocs.fileCategory, FileCategoriesBloc],
   [Blocs.dealFile, DealFileBloc],
+  [Blocs.merchantNote, MerchantNoteBloc],
 ];
