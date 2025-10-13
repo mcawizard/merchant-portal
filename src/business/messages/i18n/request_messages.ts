@@ -60,4 +60,14 @@ export const REQUEST_MESSAGES = {
     success: t`Note created successfully`,
     error: t`Unable to create note`,
   }),
+
+  send_payoff_request: () => ({
+    success: t`Payoff request sent successfully`,
+    error: t`Unable to send payoff request`,
+  }),
+
+  send_renewal_request: () => ({
+    success: t`Renewal request sent successfully`,
+    error: t`Unable to send renewal request`,
+  }),
 };

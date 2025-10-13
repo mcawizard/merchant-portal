@@ -14,4 +14,6 @@ export class SubmissionTableBloc extends BaseBloc {
   onInit() {
     return forkJoin([this.submissionBloc.all()]).pipe(this.loading.run());
   }
+
+  sendRequest = this.submissionBloc.sendRequest;
 }

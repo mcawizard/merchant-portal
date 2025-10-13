@@ -13,3 +13,7 @@ export function getFunded() {
 export function stats() {
   return Endpoint.get<HomeStatResponse[]>(`@merchant/submissions/stats`);
 }
+
+export function sendRequest(id: string, data: { message: string; merchantId: string; type?: string }) {
+  return Endpoint.post<void>(`@merchant/submissions/${id}/send-request`, { data });
+}

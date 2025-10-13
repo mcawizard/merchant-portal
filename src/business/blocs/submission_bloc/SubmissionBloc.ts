@@ -32,4 +32,10 @@ export class SubmissionBloc extends BaseBloc {
   getFunded = () => {
     return SubmissionAPI.getFunded().pipe(this.submissionFundedRepo.ops.reset(), handleMessage({ error: requestMessage('fetch_submission_error') }));
   };
+
+  sendRequest = (id: string, data: { message: string; merchantId: string; type?: string }) => {
+    return SubmissionAPI.sendRequest(id, data).pipe(
+      handleMessage({ type: requestMessage(data.type == 'payoff' ? 'send_payoff_request' : 'send_renewal_request') }),
+    );
+  };
 }

@@ -1,20 +1,23 @@
 import React, { memo } from 'react';
-import { Table } from '@modules/common';
+import { openGenericInputModal, Table } from '@modules/common';
 import { ColumnType } from 'antd/es/table';
 import { TableMenu } from '@core/components/TableMenu';
 import { CompactSubmissionResponse } from '@business/entities/submissions/SubmissionResponse';
-import { useNonNilObservable } from '@core/utils/hooks/rxjs';
+import { useNonNilObservable, useObservable } from '@core/utils/hooks/rxjs';
 import { Formatter } from '@core/utils/formatter';
 import { CommonService } from '@business/services';
 import { openAddEditFileModal } from '../../components/AddEditFileModal';
 import { SubmissionTableBloc } from './SubmissionTableBloc';
 import { useBloc } from '@core/utils/bloc';
 import { useLoadingState } from '@core/utils/repository/loading_state';
+import { Session } from '@modules/auth/session';
 
 export const SubmissionTable = memo(() => {
   const bloc = useBloc(SubmissionTableBloc);
   const submissions = useNonNilObservable(bloc.submission$);
   const loading = useLoadingState(bloc.loading);
+  const user = useObservable(Session.user$);
+  const merchantId = user?.merchant?.id ?? '0';
 
   const columns: ColumnType<CompactSubmissionResponse>[] = [
     {
@@ -63,6 +66,32 @@ export const SubmissionTable = memo(() => {
       render: (_, item) => (
         <TableMenu
           key={item.id}
+          items={[
+            {
+              title: 'Send Payoff Request',
+              icon: 'fas fa-paper-plane',
+              onClick: () => {
+                openGenericInputModal({
+                  multiline: true,
+                  button: 'Send',
+                  title: 'Payoff Request Message',
+                  onSubmit: message => bloc.sendRequest(item.id, { message, merchantId, type: 'payoff' }),
+                });
+              },
+            },
+            {
+              title: 'Send Renewal Request',
+              icon: 'fas fa-paper-plane',
+              onClick: () => {
+                openGenericInputModal({
+                  multiline: true,
+                  button: 'Send',
+                  title: 'Renewal Request Message',
+                  onSubmit: message => bloc.sendRequest(item.id, { message, merchantId, type: 'renewal' }),
+                });
+              },
+            },
+          ]}
           onUpload={() =>
             openAddEditFileModal({
               deal_id: item.id,
