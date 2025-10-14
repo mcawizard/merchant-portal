@@ -74,9 +74,5 @@ export const FundedTable = memo(() => {
     },
   ];
 
-  return (
-    <Card>
-      <Table columns={columns} dataSource={submissions} rowHoverable rowKey={'id'} loading={loading.loading} />
-    </Card>
-  );
+  return <Table columns={columns} dataSource={submissions} rowHoverable rowKey={'id'} loading={loading.loading} />;
 });
