@@ -7,6 +7,7 @@ import { SubmissionBloc } from './submission_bloc';
 import { FileCategoriesBloc } from './file_categories_bloc';
 import { DealFileBloc } from './deal_file_bloc';
 import { MerchantNoteBloc } from './merchant_note_bloc';
+import { ApplicationSubmissionBloc } from './application_submission_bloc';
 
 export const BLOCS: [TokenData<BaseBloc>, Constructor<BaseBloc>][] = [
   [Blocs.user, UserBloc],
@@ -15,4 +16,5 @@ export const BLOCS: [TokenData<BaseBloc>, Constructor<BaseBloc>][] = [
   [Blocs.fileCategory, FileCategoriesBloc],
   [Blocs.dealFile, DealFileBloc],
   [Blocs.merchantNote, MerchantNoteBloc],
+  [Blocs.applicationSubmission, ApplicationSubmissionBloc],
 ];

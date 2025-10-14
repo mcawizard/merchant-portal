@@ -14,6 +14,7 @@ import { useLoadingState } from '@core/utils/repository/loading_state';
 import FundedTable from './Tabs/FundedTable';
 import { Card } from 'antd';
 import MerchantNotes from './components/MerchantNotes';
+import { ApplicationSubmissionTable } from './ApplicationSubmissionTable';
 
 export const HomePage = memo(() => {
   useMainPageConfig(() => ({ sidebar: false, header: false }));
@@ -51,12 +52,14 @@ export const HomePage = memo(() => {
         </Col>
       </Row>
       <Row>
-        <Col sm={8}>
+        <Col sm={9}>
           <Card>
             <Tabs tabs={tabs} />
           </Card>
+
+          <ApplicationSubmissionTable bloc={bloc} />
         </Col>
-        <Col sm={4}>
+        <Col sm={3}>
           <MerchantNotes />
         </Col>
       </Row>

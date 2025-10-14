@@ -32,12 +32,12 @@ export const SubmissionTable = memo(() => {
     },
     {
       title: 'Company Name',
-      dataIndex: 'companyName',
+      dataIndex: 'company.companyName',
       render: (_, item) => item.company.companyName,
     },
     {
       title: 'Address',
-      dataIndex: 'address',
+      dataIndex: 'company.mainAddress',
       render: (_, item) => CommonService.getAddress(item.company.mainAddress),
     },
     {
@@ -47,26 +47,37 @@ export const SubmissionTable = memo(() => {
     },
     {
       title: 'Offer Amount',
-      dataIndex: 'dealStatus',
+      dataIndex: 'dealLenderOffer.lender_offer_amount',
       render: (_, item) => Formatter.formatCurrency(item.dealLenderOffer.lender_offer_amount, 'USD'),
     },
     {
       title: 'Term/Frequency',
-      dataIndex: 'dealStatus',
+      dataIndex: 'dealLenderOffer.lender_term',
       render: (_, item) => item.dealLenderOffer.lender_term + '/' + item.dealLenderOffer.lender_payment_type,
     },
     {
       title: 'Payment Amount',
-      dataIndex: 'dealStatus',
+      dataIndex: 'dealLenderOffer.lender_payment',
       render: (_, item) => Formatter.formatCurrency(item.dealLenderOffer.lender_payment, 'USD'),
     },
     {
+      title: 'Hellosign Contract Sent',
+      dataIndex: 'contractSentDate',
+      render: (_, item) => Formatter.formatDateTime(item.contractSentDate),
+    },
+    {
       title: 'Actions',
-      width: 50,
+      width: 20,
       render: (_, item) => (
         <TableMenu
           key={item.id}
           items={[
+            {
+              title: 'View Hellosign Contract',
+              icon: 'fas fa-file-contract',
+              onClick: () => window.open(item.contractUrl ?? '', '_blank'),
+              disabled: !item.contractUrl,
+            },
             {
               title: 'Send Payoff Request',
               icon: 'fas fa-paper-plane',

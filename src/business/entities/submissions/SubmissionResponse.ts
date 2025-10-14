@@ -12,6 +12,9 @@ export interface SubmissionResponse {
   fundedDate: number;
   deal_total_rtr: number;
   balance: DealBalanceResponse;
+  contractSentDate: number | null;
+  contractSignatureRequestId: string | null;
+  contractUrl: string | null;
 }
 
 export interface DealBalanceResponse {
@@ -33,7 +36,18 @@ export enum AccountingStatusType {
   completeViaLegalSettlement = 'Complete via Legal Settlement',
 }
 
-export type CompactSubmissionResponse = Pick<SubmissionResponse, 'id' | 'contractMID' | 'createdAt' | 'company' | 'dealLenderOffer' | 'dealStatus'>;
+export type CompactSubmissionResponse = Pick<
+  SubmissionResponse,
+  | 'id'
+  | 'contractMID'
+  | 'createdAt'
+  | 'company'
+  | 'dealLenderOffer'
+  | 'dealStatus'
+  | 'contractSentDate'
+  | 'contractSignatureRequestId'
+  | 'contractUrl'
+>;
 
 export type FundedSubmissionResponse = Pick<
   SubmissionResponse,
